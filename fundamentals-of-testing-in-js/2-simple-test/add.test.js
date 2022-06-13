@@ -1,29 +1,36 @@
 // Code to test:
 function add(a, b) {
-  return a - b; // <-- mistak that will be catch by the test
+  return a - b; // <-- mistake that test will catch
 }
 
 // Test suite:
 console.log("===");
 console.log("TEST SUITE for add(a, b):");
 
-// Test:
-console.log("  > TEST: add 3 and 4:");
+// Test that does not catch the mistake:
+test__add(3, 0);
 
-const expected = 7;
-const output = add(3, 4);
+// That that catches the mitsatke:
+test__add(3, 4);
 
-if (output === expected) {
-  console.log("    > PASS");
-} else {
-  console.log("    > FAIL");
+// Test code:
+function test__add(a, b) {
+  const expected = a + b;
+  const output = add(a, b);
 
-  const error = `    > Expected ${expected}, got ${output}`;
-  console.error(error);
+  console.log(`  > TEST: add ${a} and ${b}:`);
 
-  console.log("---");
-  console.log("Error traceback:");
-  console.log("---");
+  if (output === expected) {
+    console.log("    > PASS");
+  } else {
+    const error = `    > FAIL: Expected ${expected}, got ${output}`;
 
-  throw new Error();
+    console.error(error);
+
+    console.log("---");
+    console.log("Error traceback:");
+    console.log("---");
+
+    throw new Error();
+  }
 }
