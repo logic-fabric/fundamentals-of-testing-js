@@ -1,23 +1,24 @@
-const { expect } = require("./assertions");
+const { expect, test } = require("./testing-lib");
 
 const { add } = require("./add");
 
 // Test suite:
-console.log("===");
+console.log("====");
 console.log("TEST SUITE for:", add);
-
-// Test that does not catch the mistake:
-test__add(3, 0);
+console.log("====");
 
 // Test that catches the mistatke:
-test__add(3, 4);
-
-// Test code:
-function test__add(a, b) {
-  console.log(`  > TEST: add ${a} and ${b}:`);
-
-  const expected = a + b;
-  const output = add(a, b);
+test("add 3 and 4", () => {
+  const expected = 7;
+  const output = add(3, 4);
 
   expect(output).toBe(expected);
-}
+});
+
+// Test that does not catch the mistake:
+test("add 3 and 0", () => {
+  const expected = 3;
+  const output = add(3, 0);
+
+  expect(output).toBe(expected);
+});
