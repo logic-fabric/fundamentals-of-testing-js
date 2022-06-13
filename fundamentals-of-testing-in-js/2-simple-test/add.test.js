@@ -1,11 +1,8 @@
-// Code to test:
-function add(a, b) {
-  return a - b; // <-- mistake that test will catch
-}
+const { add } = require("./add");
 
 // Test suite:
 console.log("===");
-console.log("TEST SUITE for add(a, b):");
+console.log("TEST SUITE for:", add);
 
 // Test that does not catch the mistake:
 test__add(3, 0);
