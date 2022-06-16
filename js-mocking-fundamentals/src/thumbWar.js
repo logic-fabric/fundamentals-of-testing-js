@@ -25,4 +25,4 @@ function thumbWar(player1, player2) {
   return winner;
 }
 
-thumbWar("Alice", "Bob");
+module.exports = thumbWar;
