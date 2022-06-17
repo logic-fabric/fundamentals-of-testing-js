@@ -1,16 +1,19 @@
 const assert = require("assert");
+const { test } = require("../../../fundamentals-of-testing-in-js/testing-lib");
 
 const thumbWar = require("../thumbWar");
 const utils = require("../utils");
 
-const originalGetWinner = utils.getWinner;
+test("Test thumbWar", () => {
+  const originalGetWinner = utils.getWinner;
 
-// Monkey patching:
-utils.getWinner = (p1, p2) => p1;
+  // Monkey patching:
+  utils.getWinner = (p1, p2) => p1;
 
-const winner = thumbWar("Alicia", "Bobby");
+  const winner = thumbWar("Alicia", "Bobby");
 
-assert.strictEqual(winner, "Alicia");
+  assert.strictEqual(winner, "Alicia");
 
-// Restore the original function:
-utils.getWinner = originalGetWinner;
+  // Restore the original function:
+  utils.getWinner = originalGetWinner;
+});
