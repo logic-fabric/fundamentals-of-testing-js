@@ -15,6 +15,11 @@ test("Test thumbWar", () => {
   // Check if getWinner() has been called as expected:
   expect(utils.getWinner).toHaveBeenCalledTimes(2);
   expect(utils.getWinner).toHaveBeenCalledWith("Alicia", "Bobby");
+  // Two expectations that can be replaced by:
+  expect(utils.getWinner.mock.calls).toEqual([
+    ["Alicia", "Bobby"],
+    ["Alicia", "Bobby"],
+  ]);
 
   // Restore the original function:
   utils.getWinner.mockRestore();
