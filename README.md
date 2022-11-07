@@ -1,4 +1,4 @@
-# Fundamentals of testing in _JavasSript_ - June 2022
+# Fundamentals of testing in _JavasScript_ - June 2022
 
 Training repo for the first parts of [Testing _JavaScript_ with Kent C. Dodds](https://testingjavascript.com/) course:
 
